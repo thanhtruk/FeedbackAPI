@@ -12,7 +12,7 @@ def get_feedback(feedback_id):
     fb = get_question_by_id(feedback_id)
     return jsonify(fb or {"error": "Not found"}), 200 if fb else 404
 
-@question_bp.route('/feedback', methods=['POST'])
+@question_bp.route('/question', methods=['POST'])
 def add_feedback():
     data = request.json
     fb_id = create_question(data)

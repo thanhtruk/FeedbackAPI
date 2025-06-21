@@ -9,5 +9,5 @@ def generate_custom_id(collection_name: str) -> str:
     today = datetime.today()
     date_part = today.strftime("%m-%d")
 
-    custom_id = f"{count}-{date_part}"
+    custom_id = f"{collection_name[0]}{count}-{date_part}"
     return custom_id
