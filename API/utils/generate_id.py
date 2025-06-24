@@ -3,8 +3,15 @@ from API.firebase_config import db
 
 
 def generate_custom_id(collection_name: str) -> str:
-    docs = db.collection(collection_name).get()
-    count = len(docs) + 1
+    counter_ref = db.collection("counters").document(collection_name)
+    counter_doc = counter_ref.get()
+
+    if counter_doc.exists:
+        count = counter_doc.to_dict().get("count", 0) + 1
+    else:
+        count = 1
+
+    counter_ref.set({"count": count})  # update counter
 
     today = datetime.today()
     date_part = today.strftime("%m-%d")

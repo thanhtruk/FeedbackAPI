@@ -16,11 +16,11 @@ def get_feedback_by_id(feedback_id):
 
 def create_feedback(data):
     required_fields = [
-        "title", "field", "fieldDetail",
+        "title", "field", "field_detail", "content",
         "clauses_sentiment", "status", "response"
     ]
 
-    data["time"] = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+    #data["create_at"] = datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
 
     missing_fields = [field for field in required_fields if field not in data]
     if missing_fields:

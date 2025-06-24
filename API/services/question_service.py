@@ -16,7 +16,7 @@ def get_question_by_id(question_id):
 
 def create_question(data):
     required_fields = [
-        "title", "field", "fieldDetail",
+        "title", "field", "field_detail",
         "content", "status", "response"
     ]
 
